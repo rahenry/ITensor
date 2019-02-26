@@ -74,7 +74,7 @@ class SpinHalfSite
             //mixedIQTensor call needed here
             //because as an IQTensor, Op would
             //not have a well defined QN flux
-            Op = mixedIQTensor(dag(s),sP);
+            //Op = mixedIQTensor(dag(s),sP);
             Op.set(Up,DnP,+0.5);
             Op.set(Dn,UpP,+0.5);
             }

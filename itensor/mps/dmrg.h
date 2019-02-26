@@ -242,6 +242,7 @@ DMRGWorker(MPSt<Tensor>& psi,
 
             auto phi = psi.A(b)*psi.A(b+1);
 
+// hi
             energy = davidson(PH,phi,args);
             
             auto spec = psi.svdBond(b,phi,(ha==1?Fromleft:Fromright),PH,args);
