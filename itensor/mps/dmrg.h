@@ -246,6 +246,10 @@ DMRGWorker(MPSt<Tensor>& psi,
 	    auto eigensolver_name = args.getString("EigensolverName");
 	    if (eigensolver_name == "Arnoldi"){
 	      energy = arnoldi(PH,phi,args).real();
+	      // energy = arnoldi(PH,phi,args).real();
+	      // auto e = arnoldi(PH, phi, args);
+	      // if (e.real() < 0) energy = -abs(e);
+	      // else energy = abs(e);
 	    }
 	    else{
 	      energy = davidson(PH,phi,args);

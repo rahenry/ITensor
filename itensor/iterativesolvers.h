@@ -686,15 +686,16 @@ arnoldi(const BigMatrixT& A,
     {
     int maxiter_ = args.getInt("MaxIter",10);
     int maxrestart_ = args.getInt("MaxRestart",0);
-    std::string whicheig_ = args.getString("WhichEig","LargestMagnitude");
-    const Real errgoal_ = args.getReal("ErrGoal",1E-6);
+    //std::string whicheig_ = args.getString("WhichEig","LargestMagnitude");
+    std::string whicheig_ = args.getString("WhichEig","SmallestReal");
+    const Real errgoal_ = args.getReal("ErrGoal",1E-14);
     const int debug_level_ = args.getInt("DebugLevel",-1);
 
     if(maxiter_ < 1) maxiter_ = 1;
     if(maxrestart_ < 0) maxrestart_ = 0;
 
-    const Real Approx0 = 1E-12;
-    const int Npass = args.getInt("Npass",2); // number of Gram-Schmidt passes
+    const Real Approx0 = 1E-10;
+    const int Npass = args.getInt("Npass",5); // number of Gram-Schmidt passes
 
     const size_t nget = phi.size();
     if(nget == 0) Error("No initial vectors passed to arnoldi.");
